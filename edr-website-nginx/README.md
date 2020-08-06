@@ -1,4 +1,4 @@
-# Section A - Create docker images for webapps versions v1 and v2
+# Section D - Create docker images for webapps versions v1 and v2
 
 **Build the v1 Image:**
 ```
@@ -40,9 +40,9 @@ gcloud container images list
 gcloud container images describe gcr.io/coen-ed-randall/edr-website-nginx:v1
 gcloud container images describe gcr.io/coen-ed-randall/edr-website-nginx:v2
 ```
-
-
-
+&nbsp;
+&nbsp;
+&nbsp;
 # Section B - Upload v1 of the docker image webapp
 
 **Set the project:**
@@ -170,10 +170,10 @@ kubectl get pods
 kubectl get service
 ```
 &nbsp;
-
 _Browse to the EXTERNAL-IP of the service to see v1 of the application (blue)_
-
-
+&nbsp;
+&nbsp;
+&nbsp;
 # Section C - Upgrade the webapp to a newer version
 
 **Show the current kubernetes deployment:**
@@ -199,7 +199,6 @@ gcloud container images list-tags gcr.io/coen-ed-randall/edr-website-nginx
 kubectl set image deployment/edr-test-website edr-website-nginx=gcr.io/coen-ed-randall/edr-website-nginx:v2
 ```
 &nbsp;
-
 _Finally, navigate to the external LB IP (find it with kubectl get service)_
 
 
