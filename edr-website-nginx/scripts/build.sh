@@ -8,8 +8,8 @@
 #Pull in global variables from config/config.sh
 . config/config.sh
 
-echo $DOCKER build -t gcr.io/$PROJECT_NAME/$IMAGE_NAME:v1 .
-$DOCKER build -t gcr.io/$PROJECT_NAME/$IMAGE_NAME:v1 .
+echo $DOCKER build -t gcr.io/$PROJECT_NAME/$IMAGE_NAME:v2 .
+$DOCKER build -t gcr.io/$PROJECT_NAME/$IMAGE_NAME:v2 .
 
 
 echo

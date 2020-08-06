@@ -8,6 +8,8 @@ OR
 ```
 /usr/local/bin/docker build -t gcr.io/coen-ed-randall/edr-website-nginx:v1 .
 ```
+&nbsp;
+
 **Change the src symlink (referenced in Dockerfile) to point to the v2 content before building that image**
 ```
 unlink src
@@ -31,6 +33,15 @@ docker push gcr.io/coen-ed-randall/edr-website-nginx:v1
 docker push gcr.io/coen-ed-randall/edr-website-nginx:v2
 ```
 &nbsp;
+
+**Check the images got uploaded to the GCR:**
+```
+gcloud container images list
+gcloud container images describe gcr.io/coen-ed-randall/edr-website-nginx:v1
+gcloud container images describe gcr.io/coen-ed-randall/edr-website-nginx:v2
+```
+
+
 
 # Section B - Upload v1 of the docker image webapp
 
@@ -85,10 +96,10 @@ gcloud container clusters create edr-test-cluster \
 
 **Option 2: Create 2 node cluster, with nodes in europe-west2-a and europe-west2-b:**
 ```
-gcloud container clusters create edr-test-cluster \ <br />
-    --network edr-gke-vpc \ <br />
-    --subnetwork edr-gke-vpc-subnet-london \ <br />
-    --num-nodes=1 \ <br />
+gcloud container clusters create edr-test-cluster \
+    --network edr-gke-vpc \
+    --subnetwork edr-gke-vpc-subnet-london \
+    --num-nodes=1 \
     --node-locations europe-west2-a,europe-west2-b
 ```
 &nbsp;
@@ -122,11 +133,11 @@ gcloud container clusters get-credentials edr-test-cluster
 
 **Create a Kubernetes deployment for the docker image:**
 ```
-kubectl create deployment edr-test-website --image=gcr.io/coen-ed-randall/edr-nginx
+kubectl create deployment edr-test-website --image=gcr.io/coen-ed-randall/edr-website-nginx:v1
 ```
 &nbsp;
 
-**Show kubenetets pods:**
+**Show Kubernetes pods:**
 ```
 kubectl get pods
 ```
@@ -159,6 +170,9 @@ kubectl get pods
 kubectl get service
 ```
 &nbsp;
+
+_Browse to the EXTERNAL-IP of the service to see v1 of the application (blue)_
+
 
 # Section C - Upgrade the webapp to a newer version
 
