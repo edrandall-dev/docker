@@ -1,4 +1,4 @@
-# Section D - Create docker images for webapps versions v1 and v2
+# Section A - Create docker images for webapps versions v1 and v2
 
 **Build the v1 Image:**
 ```
@@ -40,6 +40,7 @@ gcloud container images list
 gcloud container images describe gcr.io/coen-ed-randall/edr-website-nginx:v1
 gcloud container images describe gcr.io/coen-ed-randall/edr-website-nginx:v2
 ```
+&nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
@@ -171,6 +172,7 @@ kubectl get service
 ```
 &nbsp;
 _Browse to the EXTERNAL-IP of the service to see v1 of the application (blue)_
+&nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
