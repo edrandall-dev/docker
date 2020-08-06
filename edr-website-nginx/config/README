@@ -1,0 +1,2 @@
+Put the desired container name and image name in the config.sh file.  This will be the only place it
+needs to be defined.
